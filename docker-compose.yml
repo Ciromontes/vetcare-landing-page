@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  vetcare-landing:
+    image: nginx:alpine
+    container_name: vetcare-landing-page
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/html:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    networks:
+      - vetcare-network
+
+networks:
+  vetcare-network:
+    driver: bridge
+
