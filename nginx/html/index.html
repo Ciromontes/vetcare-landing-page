@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <a href="/app" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
+                    <a href="https://brave-island-0600c480f.3.azurestaticapps.net" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
                         Iniciar Sesión
                     </a>
                     <button class="md:hidden text-gray-600">
@@ -64,7 +64,7 @@
                         Citas, historiales médicos, facturación y más en una sola plataforma.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="/app" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition text-center">
+                        <a href="https://brave-island-0600c480f.3.azurestaticapps.net" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition text-center">
                             <i class="fas fa-play mr-2"></i>
                             Comenzar Ahora
                         </a>
@@ -242,7 +242,7 @@
                             Soporte por email
                         </li>
                     </ul>
-                    <a href="/app" class="block text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+                    <a href="https://brave-island-0600c480f.3.azurestaticapps.net" class="block text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
                         Comenzar
                     </a>
                 </div>
@@ -279,7 +279,7 @@
                             App móvil
                         </li>
                     </ul>
-                    <a href="/app" class="block text-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                    <a href="https://brave-island-0600c480f.3.azurestaticapps.net" class="block text-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">
                         Comenzar
                     </a>
                 </div>
@@ -313,7 +313,7 @@
                             Capacitación dedicada
                         </li>
                     </ul>
-                    <a href="/app" class="block text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+                    <a href="http://localhost:3000" class="block text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
                         Contactar
                     </a>
                 </div>
@@ -331,7 +331,7 @@
                 Únete a cientos de clínicas que ya usan VetCare Pro para optimizar sus procesos y ofrecer mejor servicio.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="/app" class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition">
+                <a href="http://localhost:3000" class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition">
                     <i class="fas fa-rocket mr-2"></i>
                     Comenzar Gratis
                 </a>
@@ -360,7 +360,7 @@
                 <div>
                     <h4 class="font-semibold mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="/app" class="hover:text-white transition">Sistema</a></li>
+                        <li><a href="https://brave-island-0600c480f.3.azurestaticapps.net" class="hover:text-white transition">Sistema</a></li>
                         <li><a href="#features" class="hover:text-white transition">Características</a></li>
                         <li><a href="#services" class="hover:text-white transition">Módulos</a></li>
                     </ul>
@@ -390,6 +390,23 @@
         </div>
     </footer>
 
+    <!-- Botón flotante de instalación PWA -->
+    <div style="position:fixed; right:20px; bottom:20px; z-index:9999; display:flex; gap:10px; flex-direction:column; align-items:flex-end;">
+        <a id="open-app-link-floating"
+           href="https://brave-island-0600c480f.3.azurestaticapps.net"
+           target="_blank"
+           rel="noopener"
+           style="background:#16a34a;color:white;padding:12px 18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.2);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:8px;">
+            <i class="fas fa-desktop"></i>
+            Abrir / Instalar App
+        </a>
+        <button id="install-hint-floating"
+                style="background:#fff;border:2px solid #16a34a;color:#16a34a;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:6px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+            <i class="fas fa-question-circle"></i>
+            ¿Cómo instalar?
+        </button>
+    </div>
+
     <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -414,7 +431,19 @@
                 nav.classList.remove('bg-white', 'shadow-lg');
             }
         });
+
+        // Instrucciones de instalación PWA
+        document.addEventListener('DOMContentLoaded', function() {
+            var hintBtn = document.getElementById('install-hint-floating');
+            if (hintBtn) {
+                hintBtn.addEventListener('click', function() {
+                    alert('Para instalar la app en tu escritorio:\n\n1) Haz clic en "Abrir / Instalar App" para abrir la PWA.\n2) En Chrome/Edge verás un icono de instalación (⊕) en la barra de direcciones.\n3) Haz clic en "Instalar" y la app se añadirá a tu escritorio.\n\n¡Funciona en Windows, Mac, Linux y móviles!');
+                });
+            }
+        });
     </script>
 </body>
 </html>
+
+
 
